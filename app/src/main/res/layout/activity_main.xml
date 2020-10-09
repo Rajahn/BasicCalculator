@@ -200,6 +200,12 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/Key_point"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="." />
+
 
 
 </LinearLayout>

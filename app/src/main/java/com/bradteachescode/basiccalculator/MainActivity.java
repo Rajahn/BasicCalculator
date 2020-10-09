@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String symbol;
 
     private TextView answerTV;
-    private Button keyPad0, keyPad1,keyPad2, keyPad3, keyPad4, keyPad5, keyPad6, keyPad7, keyPad8, keyPad9;
+    private Button keyPad0, keyPad1,keyPad2, keyPad3, keyPad4, keyPad5, keyPad6, keyPad7, keyPad8, keyPad9,KeyPoint;
     private Button keyPadAdd, keyPadSub, keyPadMult, keyPadDivide, keyPadClear, keyPadEquals;
 
     private Calculater myCal;
@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         keyPad8 = findViewById(R.id.key_8_btn);
         keyPad9 = findViewById(R.id.key_9_btn);
 
+        KeyPoint=findViewById(R.id.Key_point);
+
         keyPadAdd = findViewById(R.id.key_add_btn);
         keyPadSub = findViewById(R.id.key_sub_btn);
         keyPadMult = findViewById(R.id.key_mult_btn);
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         keyPad7.setOnClickListener(this);
         keyPad8.setOnClickListener(this);
         keyPad9.setOnClickListener(this);
+
+        KeyPoint.setOnClickListener(this);
 
         keyPadAdd.setOnClickListener(this);
         keyPadSub.setOnClickListener(this);
@@ -117,6 +121,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.key_9_btn:
                 number = myCal.addNumber("9",number);
+                answerTV.setText(number);
+                break;
+
+            case R.id.Key_point:
+                number = myCal.addNumber(".",number);
                 answerTV.setText(number);
                 break;
 
