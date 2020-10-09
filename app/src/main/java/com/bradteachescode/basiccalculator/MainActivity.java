@@ -9,20 +9,22 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private String number = "";
-    private double num1 = 0;
-    private double num2 = 0;
+    private String num1 = "";
+    private String num2 = "";
     private String symbol;
 
     private TextView answerTV;
     private Button keyPad0, keyPad1,keyPad2, keyPad3, keyPad4, keyPad5, keyPad6, keyPad7, keyPad8, keyPad9;
     private Button keyPadAdd, keyPadSub, keyPadMult, keyPadDivide, keyPadClear, keyPadEquals;
 
-
+    private Calculater myCal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myCal= new Calculater();
 
         answerTV = findViewById(R.id.answer_tv);
 
@@ -69,111 +71,101 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch(view.getId()){
             case R.id.key_0_btn:
-                number = number + "0";
+                number = myCal.addNumber("0",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_1_btn:
-                number = number + "1";
+                number = myCal.addNumber("1",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_2_btn:
-                number = number + "2";
+                number = myCal.addNumber("2",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_3_btn:
-                number = number + "3";
+                number = myCal.addNumber("3",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_4_btn:
-                number = number + "4";
+                number = myCal.addNumber("4",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_5_btn:
-                number = number + "5";
+                number = myCal.addNumber("5",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_6_btn:
-                number = number + "6";
+                number = myCal.addNumber("6",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_7_btn:
-                number = number + "7";
+                number = myCal.addNumber("7",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_8_btn:
-                number = number + "8";
+                number = myCal.addNumber("8",number);
                 answerTV.setText(number);
                 break;
 
             case R.id.key_9_btn:
-                number = number + "9";
+                number = myCal.addNumber("9",number);
                 answerTV.setText(number);
                 break;
 
 
             case R.id.key_add_btn:
                 symbol = "+";
-                num1 = Integer.parseInt(number);
+                num1 = number;
                 number = "";
                 break;
 
             case R.id.key_sub_btn:
                 symbol = "-";
-                num1 = Integer.parseInt(number);
+                num1 = number;
                 number = "";
                 break;
 
             case R.id.key_div_btn:
                 symbol = "/";
-                num1 = Integer.parseInt(number);
+                num1 = number;
                 number = "";
                 break;
 
             case R.id.key_mult_btn:
                 symbol = "*";
-                num1 = Integer.parseInt(number);
+                num1 = number;
                 number = "";
                 break;
 
             case R.id.key_clear_btn:
                 symbol = "";
-                num1 = 0;
-                num2 = 0;
+                num1 = "";
+                num2 = "";
                 number = "";
                 answerTV.setText("");
                 break;
 
 
             case R.id.key_equals_btn:
-                num2 = Integer.parseInt(number);
+                num2 = number;
 
-                switch(symbol){
-                    case "+":
-                        answerTV.setText("answer: " + (num1 + num2));
-                        break;
-                    case "-":
-                        answerTV.setText("answer: " + (num1 - num2));
-                        break;
-                    case "/":
-                        answerTV.setText("answer: " + (num1 / num2));
-                        break;
-                    case "*":
-                        answerTV.setText("answer: " + (num1 * num2));
-                        break;
+                try {
+                    answerTV.setText("answer: " + myCal.cal(num1,num2,symbol));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
-                num1 = 0;
-                num2 = 0;
+                num1 = "";
+                num2 = "";
                 number = "";
-
 
                 break;
 
