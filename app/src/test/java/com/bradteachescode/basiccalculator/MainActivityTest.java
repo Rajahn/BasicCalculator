@@ -43,4 +43,16 @@ public class MainActivityTest {
         String b=a;
         calculater.cal(a,b,"+");
     }
+
+    @Test
+    public void InvalidInput1() throws Exception {
+        Calculater calculater=new Calculater();
+        assertEquals(0,calculater.cal("1...11111","1","-"),0);
+    }
+
+    @Test
+    public void InvalidInput2() throws Exception {
+        Calculater calculater=new Calculater();
+        assertEquals(-1,calculater.cal("...11111","1","-"),0);
+    }
 }
