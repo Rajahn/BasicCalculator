@@ -35,4 +35,12 @@ public class MainActivityTest {
         Calculater calculater= new Calculater();
         assertEquals(1.01,calculater.cal("1.01","1.0","/"),0);
     }
+
+    @Test(expected = ArithmeticException.class)
+    public void ExceptionTest() throws Exception {
+        Calculater calculater= new Calculater();
+        String a = String.valueOf(Double.MAX_VALUE)+1;
+        String b=a;
+        calculater.cal(a,b,"+");
+    }
 }
