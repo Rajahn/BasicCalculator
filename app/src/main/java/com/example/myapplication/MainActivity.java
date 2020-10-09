@@ -1,10 +1,11 @@
-package com.bradteachescode.basiccalculator;
+package com.example.myapplication;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -14,10 +15,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String symbol;
 
     private TextView answerTV;
+
     private Button keyPad0, keyPad1,keyPad2, keyPad3, keyPad4, keyPad5, keyPad6, keyPad7, keyPad8, keyPad9,KeyPoint;
     private Button keyPadAdd, keyPadSub, keyPadMult, keyPadDivide, keyPadClear, keyPadEquals;
 
     private Calculater myCal;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +73,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
     @Override
     public void onClick(View view) {
 
         switch(view.getId()){
+
             case R.id.key_0_btn:
+
                 number = myCal.addNumber("0",number);
                 answerTV.setText(number);
                 break;
@@ -124,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 answerTV.setText(number);
                 break;
 
+
             case R.id.Key_point:
                 number = myCal.addNumber(".",number);
                 answerTV.setText(number);
@@ -138,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.key_sub_btn:
                 symbol = "-";
-                num1 = number;
+                num1 =number;
                 number = "";
                 break;
 
@@ -162,7 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 answerTV.setText("");
                 break;
 
-
             case R.id.key_equals_btn:
                 num2 = number;
 
@@ -175,12 +181,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 num1 = "";
                 num2 = "";
                 number = "";
-
                 break;
-
-
 
         }
 
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.bradteachescode.basiccalculator;
+package com.example.myapplication;
 
 public class Calculater {
 
@@ -6,9 +6,11 @@ public class Calculater {
     public String addNumber(String num,String number){
 
         number+=num;
-
+        //number+=Integer.parseInt(num);
         return number;
     }
+
+
 
     public double cal(String a,String b,String symbol) throws Exception{
 
